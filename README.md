@@ -1,1 +1,1 @@
-# material
+# material theme for Typecho
