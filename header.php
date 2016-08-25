@@ -21,7 +21,11 @@
     <script type="text/javascript" src="<?php $this->options->themeUrl('/js/script.js'); ?>"></script>
     <!-- 通过自有函数输出HTML头部信息 -->
     <?php $this->header('commentReply='); ?>
+    <link href="<?php $this->options->themeUrl('/img/favicon.ico'); ?>" rel="shortcut icon">
     <meta name="theme-color" id="theme-color" content="#00bcd4" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <link rel="icon" sizes="192x192" href="<?php $this->options->themeUrl('/img/android_icon/192.png'); ?>" />
+    <link rel="manifest" href="<?php $this->options->themeUrl('/js/mainfest.json'); ?>" />
 </head>
 <body class="color-cyan">
     <div class="side-nav">
