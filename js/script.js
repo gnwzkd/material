@@ -14,6 +14,7 @@ window.onload=function(){
     historyHandle();
     lightBox();
     switchColor();
+    authorNewTab();
     //滚动时改变头部样式
     var actionBar=getById("action-bar"),
     header=getById("header"),
@@ -776,11 +777,11 @@ function historyHandle(){
     });
 }
 //Ajax后的重处理
-function ajaxFix(changePage){
+function ajaxFix(changeUrl){
     waveFx();
     imgPost();
     charToImg();
-    if(changePage!="noChange"){
+    if(changeUrl!="noChange"){
         infinityLoad();
     }
     tapToComment();
@@ -792,6 +793,7 @@ function ajaxFix(changePage){
     pageAjax();
     lightBox();
     switchColor();
+    authorNewTab();
 }
 //灯箱
 function lightBox(){
@@ -812,11 +814,18 @@ function lightBox(){
             prev.style.display=null;
             next.style.display=null;
         }
+    },
+    isImgLink=function(obj){
+        if(obj.href.indexOf(".jpg")>-1||obj.href.indexOf(".png")>-1||obj.href.indexOf(".gif")>-1){
+            return true;
+        }else{
+            return false;
+        }
     };
     if(postCommentsContainer){
         var links=postCommentsContainer.getElementsByTagName("a");
         for(var i=0;i<links.length;i++){
-            if(links[i].href.indexOf(".jpg")>-1||links[i].href.indexOf(".png")>-1||links[i].href.indexOf(".png")>-1){
+            if(isImgLink(links[i])){
                 imgLinks.push(links[i]);
             }
         }
@@ -826,8 +835,8 @@ function lightBox(){
             addEvent(postCommentsContainer,"click",function(e){
                 e=getEvent(e);
                 e.target=getTarget(e);
-                preventDefault(e);
-                var sameACt=function(){                
+                var sameACt=function(){
+                    preventDefault(e);
                     imgChange();
                     document.body.style.overflow="hidden";
                     box.style.display="block";
@@ -846,12 +855,12 @@ function lightBox(){
                         removeClass(zoomImg,"hide");
                     }
                 }
-                if(e.target.nodeName=="IMG"&&e.target.parentNode.nodeName=="A"){
+                if(e.target.nodeName=="IMG"&&e.target.parentNode.nodeName=="A"&&isImgLink(e.target.parentNode)){
                     addClass(zoomImg,"hide");
                     zoomImg.src=e.target.parentNode.href;
                     index=imgLinks.indexOf(e.target.parentNode);
                     sameACt();
-                }else if(e.target.nodeName=="A"){
+                }else if(e.target.nodeName=="A"&&isImgLink(e.target)){
                     addClass(zoomImg,"hide");
                     zoomImg.src=e.target.href;
                     index=imgLinks.indexOf(e.target);
@@ -894,6 +903,16 @@ function lightBox(){
             zoomImg.style.maxHeight="initial";
         }
         postCommentsContainer.lightBoxed=true;
+    }
+}
+//评论作者链接新标签打开
+function authorNewTab(){
+    var authorId=getByClass("author-id");
+    if(authorId.length>0){
+        for(var i=0;i<authorId.length;i++){
+            var authorLink=authorId[i].getElementsByTagName("a")[0];
+            authorLink?authorLink.setAttribute("target","_blank"):null;
+        }
     }
 }
 //比较大小

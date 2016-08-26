@@ -22,7 +22,7 @@
         ?>">
         <div id="<?php $comments->theId(); ?>" class="comment-author">
             <span itemprop="image" class="author-avatar"><?php $comments->gravatar('48', ''); ?></span>
-            <cite itemprop="name" class="author-id"><?php $comments->author(); ?></cite>
+            <cite itemprop="name" class="author-id"><?php $comments->author('target="_blank"'); ?></cite>
             <span class="comment-reply">
                 <a href="javascript:void(0)" rel="nofollow" data-theid="<?php $comments->theId(); ?>">回复</a>
                 <!-- <?php $comments->reply(); ?> -->
