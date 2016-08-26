@@ -577,7 +577,7 @@ function infinityLoad(){
                 }else{
                     postList.page="page/";
                 }
-                ajaxGet(window.location.href+postList.page+postList.currentPage,function(data){
+                ajaxGet(window.location.href+postList.page+postList.currentPage+"/",function(data){
                     if(data.indexOf("article")>-1){
                         var tmpEle=document.createElement("div");
                         tmpEle.innerHTML=data;
