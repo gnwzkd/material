@@ -318,10 +318,12 @@ function tapToComment(){
     closeReply=getById("close-reply"),
     respond=getByClass("respond")[0],
     floatLayer=getById("float-layer"),
+    textArea=getById("textarea"),
     popup=function(){
         body.style.overflow="hidden";
         addClass(openComment,"hide");
         removeClass(respond,"hide");
+        textArea.focus();
         floatLayer.style.display="block";
         floatLayer.style.zIndex=getStyle(respond,"z-index")-1;
         addClass(floatLayer,"display");
