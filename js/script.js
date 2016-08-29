@@ -673,13 +673,14 @@ function pageAjax(){
                     mainContent.innerHTML=data;
                     var postCommentsContainer=getByClass("post-comments-container")[0],
                     postTitle=postCommentsContainer?postCommentsContainer.getElementsByTagName("h2")[0]:null,
-                    archiveTitle=getByClass("archive-title",mainContent)[0];
+                    archiveTitle=getByClass("archive-title",mainContent)[0],
+                    titleName=getById("title").getElementsByTagName("a")[0].innerHTML;
                     if(postTitle){
-                        document.title=postTitle.innerHTML+" - "+getById("title").innerHTML;
+                        document.title=postTitle.innerHTML+" - "+titleName;
                     }else if(archiveTitle){
-                        document.title=archiveTitle.innerHTML+" - "+getById("title").innerHTML;;
+                        document.title=archiveTitle.innerHTML+" - "+titleName;
                     }else{
-                        document.title=getById("title").innerHTML;
+                        document.title=titleName;
                     }
                     history.pushState({title:document.title,url:that.href,content:mainContent.innerHTML},document.title,that.href);
                     ajaxFix();
