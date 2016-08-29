@@ -623,7 +623,13 @@ function infinityLoad(){
                 loaderDisplay("on");
                 commentList.ajaxEnable=false;
                 commentList.currentPage++;
-                ajaxGet(window.location.href+"/comment-page-"+commentList.currentPage,function(data){
+                var locate=window.location.href,
+                urlArgIndex=window.location.href.indexOf(".html/comment-page-");
+                if(urlArgIndex>-1){
+                    locate=window.location.href.substring(0,urlArgIndex+5);
+                }
+                ajaxGet(locate+"/comment-page-"+commentList.currentPage,function(data){
+                    console.log(commentList.currentPage);
                     var tmpEle=document.createElement("div"),tmpEles;
                     tmpEle.innerHTML=data;
                     var commentListOnData=getByClass("comment-list",tmpEle)[0];

@@ -44,7 +44,7 @@
         </nav>
         <div class="site-info" role="contentinfo">
             &copy; <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a><br>
-            <?php _e('由 <a href="http://www.typecho.org" target="_blank">Typecho</a> 强力驱动'); ?>
+            <?php _e('由 <a href="http://www.typecho.org" target="_blank">Typecho</a> 强力驱动<br>Theme by <a href="https://anohana.org" target="_blank">N.</a>'); ?>
         </div>
     </div>
     <div class="container">
@@ -65,5 +65,5 @@
                     </form>
                 </div>
             </div>
-            <h1 class="title" id="title"><?php $this->options->title() ?></h1>
+            <h1 class="title" id="title"><a href="<?php $this->options->siteUrl(); ?>" title="首页"><?php $this->options->title() ?></a></h1>
         </header>

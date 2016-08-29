@@ -1083,6 +1083,9 @@ header>div button>i{
     margin-top: 2em;
     font-size: 56px;
 }
+.title a,.title a:hover{
+    color:#fff;
+}
 .title.scroll {
     position: fixed;
     left: 64px;
