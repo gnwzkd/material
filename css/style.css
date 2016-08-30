@@ -96,6 +96,8 @@ button::-moz-focus-inner, input[type="reset"]::-moz-focus-inner, input[type="but
     direction: ltr;
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
+    -webkit-user-select:none;
+    -moz-user-select:none;
 }
 
 /*过渡元素*/
