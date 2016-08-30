@@ -630,7 +630,6 @@ function infinityLoad(){
                     locate=window.location.href.substring(0,urlArgIndex+5);
                 }
                 ajaxGet(locate+"/comment-page-"+commentList.currentPage,function(data){
-                    console.log(commentList.currentPage);
                     var tmpEle=document.createElement("div"),tmpEles;
                     tmpEle.innerHTML=data;
                     var commentListOnData=getByClass("comment-list",tmpEle)[0];
