@@ -15,6 +15,7 @@ window.onload=function(){
     lightBox();
     switchColor();
     authorNewTab();
+    reverseChildren();
     //滚动时改变头部样式
     var actionBar=getById("action-bar"),
     header=getById("header"),
@@ -803,6 +804,7 @@ function ajaxFix(changeUrl){
     lightBox();
     switchColor();
     authorNewTab();
+    reverseChildren();
 }
 //灯箱
 function lightBox(){
@@ -921,6 +923,21 @@ function authorNewTab(){
         for(var i=0;i<authorId.length;i++){
             var authorLink=authorId[i].getElementsByTagName("a")[0];
             authorLink?authorLink.setAttribute("target","_blank"):null;
+        }
+    }
+}
+//子评论反序
+function reverseChildren(){
+    var commentChildrens=getByClass("comment-children");
+    for(var i=0;i<commentChildrens.length;i++){
+        if(!commentChildrens[i].reversed){
+            var commentList=getByClass("comment-list",commentChildrens[i])[0],
+            commentChilds=getByClass("comment-child",commentList);
+            commentChilds.reverse();
+            for(var j=0;j<commentChilds.length;j++){
+                commentList.appendChild(commentChilds[j]);
+            }
+            commentChildrens[i].reversed=true;
         }
     }
 }
