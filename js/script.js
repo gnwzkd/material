@@ -816,10 +816,15 @@ function lightBox(){
     imgLinks=[],
     index=0,
     imgChange=function(){
-        if(index==0){
+        if(index==0&&index==imgLinks.length-1){
             prev.style.display="none";
-        }else if(index==imgLinks.length-1){
             next.style.display="none";
+        }else if(index==0&&index!=imgLinks.length-1){
+            prev.style.display="none";
+            next.style.display=null;
+        }else if(index==imgLinks.length-1&&index!=0){
+            next.style.display="none";
+            prev.style.display=null;
         }else{
             prev.style.display=null;
             next.style.display=null;
