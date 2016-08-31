@@ -201,7 +201,7 @@ function waveFx(){
                 that.style.position="relative";
             }
             that.style.overflow="hidden";
-            var mut=Math.ceil(bigger(that.offsetWidth,that.offsetHeight)/20)*2,
+            var mut=Math.ceil(Math.max(that.offsetWidth,that.offsetHeight)/20)*2,
             recUp=that,
             offset={"target":"",
             "position":"",
@@ -938,14 +938,6 @@ function reverseChildren(){
             }
             commentChildrens[i].reversed=true;
         }
-    }
-}
-//比较大小
-function bigger(a,b){
-    if(a>b){
-        return a;
-    }else{
-        return b;
     }
 }
 //传递的e参数获取，兼容浏览器代码。
