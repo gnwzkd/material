@@ -1420,7 +1420,7 @@ article blockquote {
     line-height: 24px;
     font-size: 16px;
     margin-bottom: 10px;
-    text-indent: 36px;
+    text-indent: 2em;
 }
 #head-toggle {
     position: absolute;
