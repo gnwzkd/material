@@ -580,7 +580,7 @@ function infinityLoad(){
                 }else{
                     postList.page="page/";
                 }
-                ajaxGet(window.location.href+postList.page+postList.currentPage+"/",function(data){
+                ajaxGet(window.location.protocol+"//"+window.location.hostname+window.location.pathname+postList.page+postList.currentPage+"/",function(data){
                     if(data.indexOf("article")>-1){
                         var tmpEle=document.createElement("div");
                         tmpEle.innerHTML=data;
@@ -624,7 +624,7 @@ function infinityLoad(){
                 loaderDisplay("on");
                 commentList.ajaxEnable=false;
                 commentList.currentPage++;
-                var locate=window.location.href,
+                var locate=window.location.protocol+"//"+window.location.hostname+window.location.pathname,
                 urlArgIndex=window.location.href.indexOf(".html/comment-page-");
                 if(urlArgIndex>-1){
                     locate=window.location.href.substring(0,urlArgIndex+5);
