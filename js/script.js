@@ -597,7 +597,7 @@ function infinityLoad(){
                     }else{
                         var ajaxOver=document.createElement("p");
                         ajaxOver.className="ajax-over";
-                        ajaxOver.innerHTML="评论加载完毕";
+                        ajaxOver.innerHTML="内容加载完毕";
                         postList.appendChild(ajaxOver);
                     }
                 });
