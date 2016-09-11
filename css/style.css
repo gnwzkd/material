@@ -89,8 +89,8 @@ body,.te03,a,.side-nav,.container,.readmore i,input,textarea,.post-near i,.respo
     -o-box-shadow: 0 6px 10px 0 rgba(0,0,0,0.3);
     -ms-box-shadow: 0 6px 10px 0 rgba(0,0,0,0.3);
 }
-/*操作栏阴影*/
-#action-bar.opaque{
+/*操作栏与菊花圈阴影*/
+#action-bar.opaque,.loader{
     -webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.26);
     -moz-box-shadow: 0 2px 5px rgba(0,0,0,0.26);
     box-shadow: 0 2px 5px rgba(0,0,0,0.26);
