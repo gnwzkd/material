@@ -2124,6 +2124,9 @@ a.logged-id,.logout {
     */
 }
 @media (max-width:375px){
+    #search input {
+        width: 192px;
+    }
     .main,.title{
         width: 100%;
     }
