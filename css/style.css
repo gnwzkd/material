@@ -1140,6 +1140,12 @@ article blockquote {
     background-color: rgba(0,0,0,0);
     background-image: -webkit-linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.46));
     background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.46));
+    max-width: 100%;
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .post-item.has-img h2 span::before {
     content: "";
