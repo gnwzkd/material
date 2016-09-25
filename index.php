@@ -17,7 +17,7 @@ $this->need('header.php');
         <?php while($this->next()): ?>
             <article class="post-item" itemscope itemtype="http://schema.org/BlogPosting">
                 <div class="post-main">
-                    <h2 itemprop="name headline"><a itemtype="http://schema.org/url" href="<?php $this->permalink() ?>"><?php $this->title() ?></a></h2>
+                    <h2 itemprop="name headline"><a itemscope itemtype="http://schema.org/url" href="<?php $this->permalink() ?>"><?php $this->title() ?></a></h2>
                     <div class="post-content" itemprop="articleBody">
                         <?php $this->content(''); ?>
                     </div>
@@ -43,7 +43,7 @@ $this->need('header.php');
             <?php while($this->next()): ?>
                 <article class="post-item" itemscope itemtype="http://schema.org/BlogPosting">
                     <div class="post-main">
-                        <h2 itemprop="name headline"><a itemtype="http://schema.org/url" href="<?php $this->permalink() ?>"><?php $this->title() ?></a></h2>
+                        <h2 itemprop="name headline"><a itemscope itemtype="http://schema.org/url" href="<?php $this->permalink() ?>"><?php $this->title() ?></a></h2>
                         <div class="post-content" itemprop="articleBody">
                             <?php $this->content(''); ?>
                         </div>
