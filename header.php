@@ -7,7 +7,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="<?php $this->options->charset(); ?>">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title><?php $this->archiveTitle(array(
@@ -29,7 +29,7 @@
 </head>
 <body class="color-cyan">
     <div class="side-nav">
-        <a href="<?php $this->options->siteUrl(); ?>" class="logo" alt=>
+        <a href="<?php $this->options->siteUrl(); ?>" class="logo">
             <?php if ($this->options->logoUrl): ?>
                 <img src="<?php $this->options->logoUrl() ?>" alt="<?php $this->options->title() ?>" />
             <?php endif; ?>

@@ -8,17 +8,17 @@
             <div class="post-main">
                 <h2 itemprop="name headline"><?php $this->title() ?></h2>
                 <ul class="post-meta">
-                    <li itemprop="author" itemscope itemtype="http://schema.org/Person"><i class="material-icons" alt="<?php _e('作者 '); ?>">account_circle</i> <a itemprop="name" href="<?php $this->author->permalink(); ?>" rel="author"><?php $this->author(); ?></a> </li>
-                    <li><i class="material-icons" alt="<?php _e('时间 '); ?>">date_range</i> <time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><?php $this->date('Y年m月d日'); ?></time> </li>
-                    <li><i class="material-icons" alt="<?php _e('分类 '); ?>">sort</i> <?php $this->category(','); ?> </li>
-                    <li itemprop="interactionCount"><i class="material-icons" alt="<?php $this->commentsNum('评论', '1 条评论', '%d 条评论'); ?>">mode_comment</i> <a itemprop="discussionUrl" href="<?php $this->permalink() ?>#comments"><?php $this->commentsNum('%d'); ?></a> </li>
+                    <li itemprop="author" itemscope itemtype="http://schema.org/Person"><i class="material-icons">account_circle</i> <a itemprop="name" href="<?php $this->author->permalink(); ?>" rel="author"><?php $this->author(); ?></a> </li>
+                    <li><i class="material-icons">date_range</i> <time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><?php $this->date('Y年m月d日'); ?></time> </li>
+                    <li><i class="material-icons">sort</i> <?php $this->category(','); ?> </li>
+                    <li itemprop="interactionCount"><i class="material-icons">mode_comment</i> <a itemprop="discussionUrl" href="<?php $this->permalink() ?>#comments"><?php $this->commentsNum('%d'); ?></a> </li>
                 </ul>
                 <div class="post-content" itemprop="articleBody">
                     <?php $this->content(); ?>
                 </div>
             </div>
             <div class="post-bottom">
-                <p itemprop="keywords" class="tags"><i alt="<?php _e('标签 '); ?>" class="material-icons">label</i> <?php $this->tags(', ', true, 'none'); ?> </p>
+                <p itemprop="keywords" class="tags"><i class="material-icons">label</i> <?php $this->tags(', ', true, 'none'); ?> </p>
             </div>
         </article>
         <ul class="post-near">
@@ -37,17 +37,17 @@
                 <div class="post-main">
                     <h2 itemprop="name headline"><?php $this->title() ?></h2>
                     <ul class="post-meta">
-                        <li itemprop="author" itemscope itemtype="http://schema.org/Person"><i class="material-icons" alt="<?php _e('作者 '); ?>">account_circle</i> <a itemprop="name" href="<?php $this->author->permalink(); ?>" rel="author"><?php $this->author(); ?></a> </li>
-                        <li><i class="material-icons" alt="<?php _e('时间 '); ?>">date_range</i> <time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><?php $this->date('Y年m月d日'); ?></time> </li>
-                        <li><i class="material-icons" alt="<?php _e('分类 '); ?>">sort</i> <?php $this->category(','); ?> </li>
-                        <li itemprop="interactionCount"><i class="material-icons" alt="<?php $this->commentsNum('评论', '1 条评论', '%d 条评论'); ?>">mode_comment</i> <a itemprop="discussionUrl" href="<?php $this->permalink() ?>#comments"><?php $this->commentsNum('%d'); ?></a> </li>
+                        <li itemprop="author" itemscope itemtype="http://schema.org/Person"><i class="material-icons">account_circle</i> <a itemprop="name" href="<?php $this->author->permalink(); ?>" rel="author"><?php $this->author(); ?></a> </li>
+                        <li><i class="material-icons">date_range</i> <time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><?php $this->date('Y年m月d日'); ?></time> </li>
+                        <li><i class="material-icons">sort</i> <?php $this->category(','); ?> </li>
+                        <li itemprop="interactionCount"><i class="material-icons">mode_comment</i> <a itemprop="discussionUrl" href="<?php $this->permalink() ?>#comments"><?php $this->commentsNum('%d'); ?></a> </li>
                     </ul>
                     <div class="post-content" itemprop="articleBody">
                         <?php $this->content(); ?>
                     </div>
                 </div>
                 <div class="post-bottom">
-                    <p itemprop="keywords" class="tags"><i alt="<?php _e('标签 '); ?>" class="material-icons">label</i> <?php $this->tags(', ', true, 'none'); ?> </p>
+                    <p itemprop="keywords" class="tags"><i class="material-icons">label</i> <?php $this->tags(', ', true, 'none'); ?> </p>
                 </div>
             </article>
             <ul class="post-near">
