@@ -10,7 +10,7 @@
     <div class="close waver light radius"><i class="material-icons">arrow_back</i></div>
     <div class="prev waver light radius"><i class="material-icons">keyboard_arrow_left</i></div>
     <div class="next waver light radius"><i class="material-icons">keyboard_arrow_right</i></div>
-    <img src="" id="zoom-img">
+    <img id="zoom-img" src=" " alt="zoom-img">
 </div>
 <?php $this->footer(); ?>
 </body>
