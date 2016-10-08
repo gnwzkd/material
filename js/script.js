@@ -1,4 +1,4 @@
-var body=document.documentElement?document.documentElement:document.body;
+var body=document.documentElement||document.body;
 window.onload=function(){
     waveFx();
     imgPost();
@@ -49,7 +49,6 @@ window.onload=function(){
     //返回顶部
     addEvent(header,"click",function(e){
         e=getEvent(e);
-        body=document.documentElement.scrollTop?document.documentElement:document.body;
         startMove(body,{"scrollTop":0});
     });
     //头部背景
@@ -230,11 +229,7 @@ function waveFx(){
                 pTop=e.clientY-that.offsetTop;
                 pLeft=e.clientX-that.offsetLeft;                    
             }else{
-                if(document.documentElement.scrollTop){
-                    body=document.documentElement;
-                }else if(document.body.scrollTop){
-                    body=document.body;
-                }
+                var body=document.documentElement.scrollTop?document.documentElement:document.body;
                 pTop=e.clientY-(that.offsetTop-body.scrollTop);
                 pLeft=e.clientX-(that.offsetLeft-body.scrollLeft);
             }
@@ -572,7 +567,6 @@ function infinityLoad(){
             windowHeight=document.documentElement.clientHeight||document.body.clientHeight,
             postList=getByClass("post-list")[0];
             if(postList&&top>(pageHeight-windowHeight-100)&&postList.ajaxEnable){
-                loaderDisplay("on");
                 postList.ajaxEnable=false;
                 postList.currentPage++;
                 if(window.location.pathname.indexOf("/author/")>-1||window.location.pathname.indexOf("/category/")>-1||window.location.pathname.indexOf("/search/")>-1||window.location.pathname.indexOf("/tag/")>-1){
@@ -580,6 +574,7 @@ function infinityLoad(){
                 }else{
                     postList.page="page/";
                 }
+                loaderDisplay("on");
                 ajaxGet(window.location.protocol+"//"+window.location.hostname+window.location.pathname+postList.page+postList.currentPage+"/",function(data){
                     if(data.indexOf("article")>-1){
                         var tmpEle=document.createElement("div");
@@ -600,8 +595,8 @@ function infinityLoad(){
                         ajaxOver.innerHTML="内容加载完毕";
                         postList.appendChild(ajaxOver);
                     }
+                    loaderDisplay("off");
                 });
-                loaderDisplay("off");
             }        
         });
     }
@@ -621,7 +616,6 @@ function infinityLoad(){
             windowHeight=document.documentElement.clientHeight||document.body.clientHeight,
             commentList=getByClass("comment-list")[0];
             if(commentList&&top>(commentList.offsetTop+commentList.offsetHeight-windowHeight-100)&&commentList.ajaxEnable){
-                loaderDisplay("on");
                 commentList.ajaxEnable=false;
                 commentList.currentPage++;
                 var locate=window.location.protocol+"//"+window.location.hostname+window.location.pathname,
@@ -629,6 +623,7 @@ function infinityLoad(){
                 if(urlArgIndex>-1){
                     locate=window.location.href.substring(0,urlArgIndex+5);
                 }
+                loaderDisplay("on");
                 ajaxGet(locate+"/comment-page-"+commentList.currentPage,function(data){
                     var tmpEle=document.createElement("div"),tmpEles;
                     tmpEle.innerHTML=data;
@@ -650,8 +645,8 @@ function infinityLoad(){
                         ajaxOver.innerHTML="评论加载完毕";
                         commentList.appendChild(ajaxOver);
                     }
+                    loaderDisplay("off");
                 });
-                loaderDisplay("off");
             }        
         });
     }
@@ -684,10 +679,9 @@ function pageAjax(){
                     }
                     history.pushState({title:document.title,url:that.href,content:mainContent.innerHTML},document.title,that.href);
                     ajaxFix();
+                    loaderDisplay("off");
+                    startMove(body,{"scrollTop":0});
                 });
-                body=document.documentElement.scrollTop?document.documentElement:document.body;
-                startMove(body,{"scrollTop":0});
-                loaderDisplay("off");
             });
             allLinks[i].ajaxed=true;
         }
@@ -759,8 +753,8 @@ function ajaxComment(){
                         }
                         tmpEle=null;
                     }
+                    loaderDisplay("off");
                 }
-                loaderDisplay("off");
             });
             addEvent(textArea,"keydown",function(e){
                 e=getEvent(e);
@@ -1109,6 +1103,9 @@ var delegateEvent = function(target, event,fn){
 }
 //动画框架
 function startMove(obj,json,fn){
+    if(obj==body){
+        obj=document.documentElement.scrollTop?document.documentElement:document.body;
+    }
     clearInterval(obj.timer);
     obj.timer=setInterval(function(){
         var flag=true;
