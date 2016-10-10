@@ -163,6 +163,33 @@ input:focus,textarea:focus{
 .light .wave-self{
     background: rgba(255,255,255,.2);
 }
+/*卡片动画*/
+.post-item,.post,.widget,.comment-author{
+    animation:card-trans .5s;
+    -moz-animation:card-trans .5s;
+    -webkit-animation:card-trans .5s;
+    -o-animation:card-trans .5s;
+    animation-timing-function: ease;
+    -moz-animation-timing-function: ease;
+    -webkit-animation-timing-function: ease;
+    -o-animation-timing-function: ease;
+}
+@keyframes card-trans{
+    from {position:relative;top:128px;opacity:0;}
+    to {position:relative;top:0;opacity:1;}
+}
+@-moz-keyframes card-trans{
+    from {position:relative;top:128px;opacity:0;}
+    to {position:relative;top:0;opacity:1;}
+}
+@-webkit-keyframes card-trans{
+    from {position:relative;top:128px;opacity:0;}
+    to {position:relative;top:0;opacity:1;}
+}
+@-o-keyframes card-trans{
+    from {position:relative;top:128px;opacity:0;}
+    to {position:relative;top:0;opacity:1;}
+}
 /*卡片按钮*/
 .readmore i,.post-near i,.submit i,#close-reply i {
     width: 36px;
